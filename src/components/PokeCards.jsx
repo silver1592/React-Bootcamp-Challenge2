@@ -1,15 +1,18 @@
 import React from "react";
-import { mockPokemonsData } from "../mock/pokeData";
 
-export function PokeCard() {
-  let poke = mockPokemonsData[0];
-
+export function PokeCard({ poke }) {
   return (
     <div>
       <h1>{poke.name}</h1>
-      <img src={poke.sprites.front_default} alt="" />
+      <img
+        src={poke?.sprites?.front_default ?? poke?.sprites?.back_default}
+        alt=""
+      />
       <br />
-      <img src={poke.sprites.front_shiny} alt="" />
+      <img
+        src={poke?.sprites?.front_shiny ?? poke?.sprites?.back_shiny}
+        alt=""
+      />
       <br />
       <a href={poke.videoLink}>link</a>
       <br />
